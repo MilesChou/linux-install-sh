@@ -1,8 +1,8 @@
 #!/bin/bash
 # 判斷是否為 root 身份
 if [ "`whoami`" != "root" ]; then
-echo "You may use root permission!"
-exit 1
+    echo "You may use root permission!"
+    exit 1
 fi
  
 # 安裝必要軟體
@@ -37,10 +37,17 @@ make
 # make install
  
 # Copy file 使用者輸入
-read -p "** Input your username **: " target
-mkdir -p "/home/$target/.purple/plugins"
-cp libline.so "/home/$target/.purple/plugins"
- 
+read -p "** Input your username [ default: /usr/lib/pidgin/ ] **: " target
+if 
+
+# 判斷是否為 root 身份
+if [ "$target" == "" ]; then
+    cp libline.so "/usr/lib/pidgin/"
+else
+    mkdir -p "/home/$target/.purple/plugins"
+    cp libline.so "/home/$target/.purple/plugins"
+fi
+
 # ldconfig
 ldconfig
 
