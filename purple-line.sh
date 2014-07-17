@@ -38,8 +38,8 @@ make
  
 # Copy file 使用者輸入
 read -p "** Input your username **: " target
-mkdir -p "/home/$target/.purple/plugins
-cp libline.so "/home/$target/.purple/plugins
+mkdir -p "/home/$target/.purple/plugins"
+cp libline.so "/home/$target/.purple/plugins"
  
 # ldconfig
 ldconfig
