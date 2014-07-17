@@ -6,11 +6,9 @@ if [ "`whoami`" != "root" ]; then
 fi
  
 # 安裝必要軟體
-apt-get install -y git
-apt-get install -y pidgin
-apt-get install -y build-essential
-apt-get install -y libboost-dev libboost-test-dev libboost-program-options-dev libevent-dev automake libtool flex bison pkg-config g++ libssl-dev
-apt-get install -y libpurple-dev
+apt-get update 
+apt-get install -y pidgin git build-essential
+apt-get install -y libpurple-dev libboost-dev libboost-test-dev libboost-program-options-dev libevent-dev automake libtool flex bison pkg-config g++ libssl-dev
  
 # 安裝 Apache thirft
 cd /tmp
@@ -38,9 +36,7 @@ make
  
 # Copy file 使用者輸入
 read -p "** Input your username [ default: /usr/lib/pidgin/ ] **: " target
-if 
 
-# 判斷是否為 root 身份
 if [ "$target" == "" ]; then
     cp libline.so "/usr/lib/pidgin/"
 else
@@ -50,4 +46,3 @@ fi
 
 # ldconfig
 ldconfig
-
